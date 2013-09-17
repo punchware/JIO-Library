@@ -1,6 +1,74 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
+  
   <groupId>org.gravity.jio</groupId>
   <artifactId>JioLib</artifactId>
   <version>1.0.0-SNAPSHOT</version>
+  
+  <name>JioLib</name>
+  <inceptionYear>2013</inceptionYear>
+  <description>
+	A library providing a function to simplified the Java code for i/o function. The objective of this library:
+	
+	Minimized the line of code
+	Provide an easy and simplified used of i/o function.
+	Extra features for users easy to manipulate the function.
+  </description>
+  
+  <url>http://code.google.com/p/gravity-jio</url>
+  
+  <issueManagement>
+  	<system>googlecode</system>
+  	<url>http://code.google.com/p/gravity-jio/issues/list</url>
+  </issueManagement>
+  
+  <scm>
+  	<developerConnection>scm:svn:https://gravity-jio.googlecode.com/svn/trunk/</developerConnection>
+  	<connection>scm:svn:http://gravity-jio.googlecode.com/svn/trunk/</connection>
+  	<url>http://code.google.com/p/gravity-jio/source/browse/</url>
+  </scm>
+  
+  <organization>
+  	<name>Punch</name>
+  	<url>https://www.facebook.com/punchware</url>
+  </organization>
+  
+  <developers>
+    <developer>
+      <id>1</id>
+      <name>Fakarudin Fahmi Romli</name>
+      <email>gravityhunter@gmail.com</email>
+      <roles>
+        <role>Project Owner</role>
+      </roles>
+      <timezone>+8</timezone>
+    </developer>
+    <developer>
+      <id>2</id>
+      <name>Fazreil Amreen</name>
+      <email>fazreil@gmail.com</email>
+      <roles>
+        <role>Build engineer</role>
+      </roles>
+      <timezone>+8</timezone>
+    </developer>
+        <developer>
+      <id>3</id>
+      <name>Fairul Rizal Fahrurazi</name>
+      <email>fairul.fahrurazi@gmail.com</email>
+      <roles>
+        <role>Test Engineer</role>
+      </roles>
+      <timezone>+8</timezone>
+    </developer>
+        <developer>
+      <id>4</id>
+      <name>Tarmizi Ibrahim</name>
+      <email>termize@gmail.com</email>
+      <roles>
+        <role>Development Engineer</role>
+      </roles>
+      <timezone>+8</timezone>
+    </developer>
+  </developers>
 </project>
