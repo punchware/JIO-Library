@@ -1,4 +1,0 @@
-reference on the project
-
-<li><a href="site/index.html">Project Documentation</a></li>
-<li><a href="site/apidocs/index.html">Javadocs</a></li>
