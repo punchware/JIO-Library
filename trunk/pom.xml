@@ -71,4 +71,7 @@
       <timezone>+8</timezone>
     </developer>
   </developers>
+  <build>
+  	<defaultGoal>clean install javadoc:javadoc site:site site:jar</defaultGoal>
+  </build>
 </project>
