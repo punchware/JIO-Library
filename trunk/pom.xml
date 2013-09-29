@@ -119,5 +119,14 @@
 			</roles>
 			<timezone>+8</timezone>
 		</developer>
+		<developer>
+			<id>5</id>
+			<name>Sharifah Anis</name>
+			<email>shanis.alkhadri@gmail.com</email>
+			<roles>
+				<role>Development Engineer</role>
+			</roles>
+			<timezone>+8</timezone>
+		</developer>
 	</developers>
 </project>
