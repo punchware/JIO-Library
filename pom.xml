@@ -37,6 +37,7 @@
 							<ignore></ignore>
 						</ignores> -->
 						<excludes>
+						    <exclude>org/gravity/**/*test*.class</exclude>
 							<exclude>org/gravity/**/*Test.class</exclude>
 						</excludes>
 					</instrumentation>
