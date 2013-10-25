@@ -157,4 +157,7 @@
 			<timezone>+8</timezone>
 		</developer>
 	</developers>
+	<!-- 
+	release: mvn clean release:clean release:prepare release:perform -Dmaven.test.failure.ignore=true -Dmaven.test.skip=true -Darguments='-Dmaven.test.skip=true'
+	-->
 </project>
