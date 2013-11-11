@@ -1,17 +1,18 @@
-#summary One-sentence summary of this page.
+#summary User manual documentation on how to setup and use Jio Library.
 #labels Featured
+<wiki:toc max_depth="10" />
 
 =1. Introduction =
-
-This document is a user guideline documentation on how to use a Jio Library.
+This document is a user guideline documentation on how to setup Jio Library in your development IDE environment and use a Jio Library for your Java development.
 
 
 =2. Contents =
 ==2.1. Downloading Jio-Library jar ==
-- Navigate to Jio Download page (https://code.google.com/p/gravity-jio/downloads/list), and download the latest package to your local machine.
+- Navigate to Jio Download page (https://code.google.com/p/gravity-jio/downloads/list), and download the latest *Jar* package to your local machine.
 
 ==2.2. Setup Jio Lib in your Java development IDE  ==
 - *Eclipse:*
+  * Download eclipse IDE from this link (recommended eclipse juno): http://www.eclipse.org/downloads/ 
   * Access your eclipse IDE and create a new java project: click *_File_*  --> *_New_* --> *_Java Project_*.
   * Fill the name of your project, and click *_next_*.
   * Java Setting page will prompt up, select the *_Libraries_* tab.
@@ -23,13 +24,33 @@ This document is a user guideline documentation on how to use a Jio Library.
   * Expand your project tree and verify the *_Referenced Libraries_* folder existed.
   * Expand the *_Referenced Libraries_* folder, and verify the Jiolib jar are listed.
 
-==2.3. Use Jio Lib in development  ==
+==2.3. Jio Library usage in development  ==
 - Create a java class.
 - Import the Jio library:
   * import org.gravity.Function; (to call only procedure in the function classes).
   * import org.gravity.Math; (to call only procedure in the Math classes).
   * import org.gravity.Proc; (to call only procedure in the Proc classes).
+
 - Now you are able to call Jio Libraries features to use in your development. Below is the sytax example of jio Library usage:
   * Function.copyAllFileActual(arg0, arg1);
   * Math.divide(input, constant);
   * Proc.runCL(arg0);
+
+==2.4. Case Study  ==
+- *Case Study 1*: I want to search for a specific file in a specific folder and delete it.
+{{{
+import org.gravity.Function;
+
+public class test {
+	 public static void main(String[] args) {
+		 String path="C:\\testJio\\";		   // Define the path
+		 Function.fileCheck("test", "txt", path);  //Used file checking function to identify the file existence
+		 Function.fileDel("test", "txt", path);	   //Used file delete function to delete the file
+	 }
+}
+}}}
+Walla!!.. just 3 line of code's to do your bidding. Return result:
+{{{
+File name: test.txt existed
+test.txt is deleted!
+}}}
