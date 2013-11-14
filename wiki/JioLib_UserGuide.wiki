@@ -54,3 +54,46 @@ Walla!!.. just 3 line of code's to do your bidding. Return result:
 File name: test.txt existed
 test.txt is deleted!
 }}}
+
+Example of negative return:
+{{{
+File name: test.txt not found
+Delete operation is failed.
+}}}
+
+- *Case Study 2*: I want to search for a *multiples* specific file which is in a .txt format in a specific folder and delete it.
+{{{
+import org.gravity.Function;
+
+public class test {
+	 public static void main(String[] args) {
+	 
+	       String[] fileName = {"test1","test2","test3"};	// Lists of filename in the array
+	       String path="C:\\testJio\\";             	// Directory path here	
+	 
+	       for (int x = 0; x < fileName.length ;x++){	// Apply for loop
+	       Function.fileCheck(fileName[x], "txt", path); 	//Used the jioLib file checking function to search and check the existence of those file
+	       Function.fileDel(fileName[x], "txt", path);	//Used the jioLib file delete function to delete the file 
+	     }
+      }
+}
+}}}
+Positive return result:
+{{{
+File name: test1.txt existed
+test.txt is deleted!
+File name: test2.txt existed
+test.txt is deleted!
+File name: test3.txt existed
+test.txt is deleted!
+}}}
+
+Example of negative return:
+{{{
+File name: test1.txt not found
+Delete operation is failed.
+File name: test2.txt not found
+Delete operation is failed.
+File name: test3.txt not found
+Delete operation is failed.
+}}}
