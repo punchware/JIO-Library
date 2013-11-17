@@ -97,3 +97,15 @@ Delete operation is failed.
 File name: test3.txt not found
 Delete operation is failed.
 }}}
+
+=3. List of Features =
+==3.1 Core Function features==
+|| *Function Class* || *Features* || *Syntax* || *Description* || *Version* ||
+|| Function || Creating file || {{{Function.fileCreate(fileName,fileExtension,destinationPath); }}} || Creating file in specific location || 1.0 ||
+|| || Copying file || {{{Function.copyFile(fileName,fileExtension,sourcePath,destinationPath); }}} || Copy file from source to destination path || 1.0 ||
+|| || Copying all files || {{{Function.copyAllFiles(sourcePath,destinationPath); }}} || Copy all files from source to destination path || 1.0 ||
+|| || Checking the file existence || {{{Function.fileCheck(fileName,fileExtension,sourcePath); }}} || Checking file existence in specific location || 1.0 ||
+|| || Change file extension || {{{Function.fileChangExtOne(fileName,fileExtension, newFileExtension,sourcePath); }}} || Change the extension of selected single file || 1.0 ||
+|| || Change multiple file extension || {{{Function.fileChangExtMulti(fileExtension,newFileExtension,sourcePath);}}} || Change the extension of all file with a specified extension to a new extension in the specify source path || 1.0 ||
+|| || Move file || {{{Function.moveFile(fileName,fileExtension,sourcePath,destinationPath);}}} || Move specified file to designated location || 1.0 ||
+|| || Rename file || {{{Function.unzipFolder(fileName,newFileName,sourcePath);}}} || Rename file in a specify location || 1.0 ||
