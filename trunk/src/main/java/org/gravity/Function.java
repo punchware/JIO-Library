@@ -60,7 +60,7 @@ public static String timestamp() throws IOException{
  * <p>
  * Example:
  * <p>
- * function.fileCreate( "test", "txt", "C:\");
+ * Function.fileCreate( "test", "txt", "C:\");
  */
 public static void fileCreate(String fileName, String fileExt, String Destination){
 	
@@ -87,7 +87,7 @@ public static void fileCreate(String fileName, String fileExt, String Destinatio
  * <p>
  * Example:
  * <p>
- * function.fileDel("test", "txt", "C:\");
+ * Function.fileDel("test", "txt", "C:\");
  */
 public static void fileDel(String fileName, String fileExt, String Destination){
 	
@@ -118,7 +118,7 @@ public static void fileDel(String fileName, String fileExt, String Destination){
  * <p>
  * Example:
  * <p>
- * function.fileCheck( "test", "txt", "C:\");
+ * Function.fileCheck( "test", "txt", "C:\");
  */
 public static void fileCheck(String fileName, String fileExt, String Destination){
 	
@@ -151,7 +151,7 @@ public static void fileCheck(String fileName, String fileExt, String Destination
  * <p>
  * Example:
  * <p>
- * function.fileChangExtOne("test", "txt", "dat", "C:\");
+ * Function.fileChangExtOne("test", "txt", "dat", "C:\");
  */
 public static void fileChangExtOne(String fileName, String fileExt, String NewfileExt, String Destination){
 	try{
@@ -184,7 +184,7 @@ public static void fileChangExtOne(String fileName, String fileExt, String Newfi
  * <p>
  * Example:
  * <p>
- * function.fileChangExtMulti("txt", "dat", "C:\");
+ * Function.fileChangExtMulti("txt", "dat", "C:\");
  */
 public static void fileChangExtMulti(String fileExt, String NewfileExt, String Destination){
 	try{
@@ -229,7 +229,7 @@ public static void fileChangExtMulti(String fileExt, String NewfileExt, String D
  * <p>
  * Example:
  * <p>
- * function.copyFile("test", "txt", "C:\", "C:\test\");
+ * Function.copyFile("test", "txt", "C:\", "C:\test\");
  */
 public static void copyFile(String fileName, String fileExt, String Path, String Destination){
 	try{
@@ -261,7 +261,7 @@ public static void copyFile(String fileName, String fileExt, String Path, String
  * <p>
  * Example:
  * <p>
- * function.moveFile("test", "txt", "C:/", "C:/test/");
+ * Function.moveFile("test", "txt", "C:/", "C:/test/");
  */
 public static void moveFile(String fileName, String fileExt, String Path, String Destination){
 	try{
@@ -343,7 +343,7 @@ public static void copyFolderActual(File src, File dest)throws IOException{
  * <p>
  * Example:
  * <p>
- * function.copyAllFiles("C://test1", "C://test2/");
+ * Function.copyAllFiles("C://test1", "C://test2/");
  */
 public static void copyAllFiles(String srcDir, String destDir) throws IOException{
     	File srcFileFolder = new File(srcDir);
@@ -555,7 +555,7 @@ public static void unzipFolder( String srcDir, String destDir ) {
  * <p>
  * Example:
  * <p>
- * function.unzipFolder("test1.zip", "test2.zip", "C://test");
+ * Function.unzipFolder("test1.zip", "test2.zip", "C://test");
  */
 public static void renameFile(String srcFileName, String newFileName, String Path){
 	File file1 = new File (Path+"/"+srcFileName);
