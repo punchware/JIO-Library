@@ -101,7 +101,7 @@ Delete operation is failed.
 =3. List of Features =
 ==3.1 Core Function features==
 || *Function Class* || *Features* || *Syntax* || *Description* || *Version* ||
-|| Function || Creating file || {{{Function.fileCreate(fileName,fileExtension,destinationPath); }}} || Creating file in specific location || 1.0 ||
+|| *_Function_* || Creating file || {{{Function.fileCreate(fileName,fileExtension,destinationPath); }}} || Creating file in specific location || 1.0 ||
 || || Copying file || {{{Function.copyFile(fileName,fileExtension,sourcePath,destinationPath); }}} || Copy file from source to destination path || 1.0 ||
 || || Copying all files || {{{Function.copyAllFiles(sourcePath,destinationPath); }}} || Copy all files from source to destination path || 1.0 ||
 || || Checking the file existence || {{{Function.fileCheck(fileName,fileExtension,sourcePath); }}} || Checking file existence in specific location || 1.0 ||
@@ -109,3 +109,18 @@ Delete operation is failed.
 || || Change multiple file extension || {{{Function.fileChangExtMulti(fileExtension,newFileExtension,sourcePath);}}} || Change the extension of all file with a specified extension to a new extension in the specify source path || 1.0 ||
 || || Move file || {{{Function.moveFile(fileName,fileExtension,sourcePath,destinationPath);}}} || Move specified file to designated location || 1.0 ||
 || || Rename file || {{{Function.unzipFolder(fileName,newFileName,sourcePath);}}} || Rename file in a specify location || 1.0 ||
+|| || Delete Folder || {{{Function.deleteFolder(sourcePathFolder);}}} || Delete specified folder. || 1.0 ||
+|| || Zipping Folder || {{{Function.zipFolder(sourcePathFolder);}}} || Zipping folder into a zip file and saved the zip file in the same location || 1.0 ||
+|| || Unzipping Folder || {{{Function.unzipFolder(sourcePathZipFolder,destinationPath);}}} || Unzipping the zip folder and save it to the specified destination folder || 1.0 ||
+|| || Generate timestamp || {{{String timestamp = Function.timestamp();}}} || Creating a string that consist a timestamp of current time and date in this format= *_"yyyyMMdd_HHmm"_* || 1.0 ||
+|| *_Math_* || Plus operation || {{{int out = Math.plus(xValue,yValue); }}} || Initiate plus operation of values x and y || 1.0 ||
+|| || Minus operation || {{{int out = Math.minus(xValue,yValue);}}} || Initiate a minus operation of values x and y  || 1.0 ||
+|| || Multiple operation || {{{int out = Math.multiple(xValue,yValue);}}} || Initiate a multiple operation of values x and y  || 1.0 ||
+|| || Divide operation || {{{int out = Math.divide(xValue,yValue);}}} || Initiate a divide operation of values x with y  || 1.0 ||
+
+
+
+==3.2 Core Solution features==
+|| *Function Class* || *Features* || *Syntax* || *Description* || *Version* ||
+|| *_Process (Proc)_* || Backup the files || {{{Proc.fileBackup(folderName,sourcePath,destinationPath);}}} || Backup the specified folder by copying it to the specified destination and the timestamp at the backup folder name || 1.0 ||
+|| || Execute windows command line || {{{Proc.runCL(winCommandLine);}}} || Execute the windows command line || 1.0 ||
