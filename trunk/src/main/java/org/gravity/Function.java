@@ -41,7 +41,7 @@ public static String dir() throws IOException{
  * <p>
  * Example:
  * <p>
- * String timestamp = function.timestamp();
+ * String timestamp = Function.timestamp();
  */
 public static String timestamp() throws IOException{
 	DateFormat dateFormat = new SimpleDateFormat("yyyyMMdd_HHmm");
@@ -399,7 +399,7 @@ public static void copyAllFileActual(File src, File dest)throws IOException{
  * <p>
  * Example:
  * <p>
- * function.deleteFolder("C://test1");
+ * Function.deleteFolder("C://test1");
  */   
 public static void deleteFolder(String srcDir){
     	File deleteFolder = new File (srcDir);
@@ -448,7 +448,7 @@ private static void delete(File dir){
  * <p>
  * Example:
  * <p>
- * function.zipFolder("C://test1");
+ * Function.zipFolder("C://test1");
  */   
 public static void zipFolder(String srcDir) throws Exception {
 	String destZipFile = srcDir+".zip";
@@ -502,7 +502,7 @@ static private void ZipFile(String path, String srcFile, ZipOutputStream zip)thr
  * <p>
  * Example:
  * <p>
- * function.unzipFolder("C://test/test1.zip", "C://test/");
+ * Function.unzipFolder("C://test/test1.zip", "C://test/");
  */   
 public static void unzipFolder( String srcDir, String destDir ) {
 	try {
