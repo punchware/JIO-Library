@@ -14,7 +14,7 @@ public class Math{
 	 * <p>
 	 * Example:
 	 * <p>
-	 * int out = math.plus(10,2);
+	 * int out = Math.plus(10,2);
 	 */
 	public static int plus (int input, int constant) throws IOException{
 		int x = input;
@@ -33,7 +33,7 @@ public class Math{
 	 * <p>
 	 * Example:
 	 * <p>
-	 * int out = math.minus(10,2);
+	 * int out = Math.minus(10,2);
 	 */
 	public static int minus (int input, int constant) throws IOException{
 		int x = input;
@@ -52,7 +52,7 @@ public class Math{
 	 * <p>
 	 * Example:
 	 * <p>
-	 * int out = math.multiple(10,2);
+	 * int out = Math.multiple(10,2);
 	 */
 	public static int multiple (int input, int constant) throws IOException{
 		int x = input;
@@ -71,7 +71,7 @@ public class Math{
 	 * <p>
 	 * Example:
 	 * <p>
-	 * int out = math.divide(10,2);
+	 * int out = Math.divide(10,2);
 	 */
 	public static int divide (int input, int constant) throws IOException{
 		int x = input;

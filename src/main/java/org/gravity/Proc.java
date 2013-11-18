@@ -19,7 +19,7 @@ public class Proc{
 	 * <p>
 	 * Example:
 	 * <p>
-	 * proc.fileBackup("test1", "C://test", "C://test/test");
+	 * Proc.fileBackup("test1", "C://test", "C://test/test");
 	 */
 	public static void fileBackup(String folderName, String srcDir, String destDir) throws IOException{
 		File destMarker = new File(destDir);
@@ -53,7 +53,7 @@ public class Proc{
 	 * <p>
 	 * Example:
 	 * <p>
-	 * proc.runCL("notepad");
+	 * Proc.runCL("notepad");
 	 */
 	public static void runCL (String proc) throws InterruptedException{
 		String writeINFO=null;
