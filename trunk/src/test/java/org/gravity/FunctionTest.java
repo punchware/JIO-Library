@@ -27,7 +27,7 @@ public class FunctionTest {
 		assertEquals(Integer.parseInt(timestampValue.substring(0,4)),yearValue);
 		assertEquals(Integer.parseInt(timestampValue.substring(4,6)),monthValue);
 		assertEquals(Integer.parseInt(timestampValue.substring(6,8)),dateValue);
-		assertEquals(Integer.parseInt(timestampValue.substring(9,11)),hourValue);
+		assertTrue((Integer.parseInt(timestampValue.substring(9,11))==hourValue)||(Integer.parseInt(timestampValue.substring(9,11))==hourValue+12));
 		assertEquals(Integer.parseInt(timestampValue.substring(11,13)),minuteValue);
 	}
 
