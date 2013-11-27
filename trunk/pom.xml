@@ -37,9 +37,6 @@
 				<version>2.6</version>
 				<configuration>
  					<instrumentation>
-<!-- 					<ignores>
-							<ignore></ignore>
-						</ignores> -->
 						<excludes>
 						    <exclude>org/gravity/**/*test*.class</exclude>
 							<exclude>org/gravity/**/*Test.class</exclude>
@@ -59,6 +56,7 @@
 				<artifactId>maven-surefire-plugin</artifactId>
 				<version>2.16</version>
 				<configuration>
+					<testFailureIgnore>true</testFailureIgnore>
 					<includes>
 						<include>**/*test*.java</include>
 						<include>**/*Test*.java</include>
