@@ -112,25 +112,29 @@
 
 	<developers>
 		<developer>
-			<id>1</id>
+			<id>fami</id>
 			<name>Fakarudin Fahmi Romli</name>
 			<email>gravityhunter@gmail.com</email>
+			<organization>Punchware</organization>
+			<organizationUrl>http://www.facebook.com/punchware</organizationUrl>
 			<roles>
 				<role>Project Owner</role>
 			</roles>
 			<timezone>+8</timezone>
 		</developer>
 		<developer>
-			<id>2</id>
+			<id>fazreil</id>
 			<name>Fazreil Amreen</name>
 			<email>fazreil@gmail.com</email>
+			<organization>Punchware</organization>
+			<organizationUrl>http://www.facebook.com/punchware</organizationUrl>
 			<roles>
 				<role>Build engineer</role>
 			</roles>
 			<timezone>+8</timezone>
 		</developer>
 		<developer>
-			<id>3</id>
+			<id>fairul</id>
 			<name>Fairul Rizal Fahrurazi</name>
 			<email>fairul.fahrurazi@gmail.com</email>
 			<roles>
@@ -139,7 +143,7 @@
 			<timezone>+8</timezone>
 		</developer>
 		<developer>
-			<id>4</id>
+			<id>mizi</id>
 			<name>Tarmizi Ibrahim</name>
 			<email>termize@gmail.com</email>
 			<roles>
@@ -148,11 +152,49 @@
 			<timezone>+8</timezone>
 		</developer>
 		<developer>
-			<id>5</id>
+			<id>anis</id>
 			<name>Sharifah Anis</name>
 			<email>shanis.alkhadri@gmail.com</email>
 			<roles>
 				<role>Development Engineer</role>
+			</roles>
+			<timezone>+8</timezone>
+		</developer>
+		<developer>
+			<id>mag</id>
+			<name>Magesh George</name>
+			<email>mag.geo8@gmail.com</email>
+			<roles>
+				<role>Development Engineer</role>
+			</roles>
+			<timezone>+8</timezone>
+		</developer>
+		<developer>
+			<id>kim</id>
+			<name>Syahrul Hakimah Ong</name>
+			<email>kuroro.rhayzen@gmail.com</email>
+			<roles>
+				<role>Development Engineer</role>
+			</roles>
+			<timezone>+8</timezone>
+		</developer>
+		<developer>
+			<id>mashi</id>
+			<name>Mashitah Murad</name>
+			<email>mashizuka352@gmail.com</email>
+			<roles>
+				<role>Development Engineer</role>
+				<role>Test Engineer</role>
+			</roles>
+			<timezone>+8</timezone>
+		</developer>
+		<developer>
+			<id>hud</id>
+			<name>Solehudin Abdullah</name>
+			<email>solehudinabdullah@gmail.com</email>
+			<roles>
+				<role>Development Engineer</role>
+				<role>Test Engineer</role>
 			</roles>
 			<timezone>+8</timezone>
 		</developer>
