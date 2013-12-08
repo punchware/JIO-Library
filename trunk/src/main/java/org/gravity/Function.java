@@ -317,8 +317,7 @@ public static void copyFolderActual(File src, File dest)throws IOException{
  else{
  //Byte stream method to support all type of file
  InputStream in = new FileInputStream(src);
- OutputStream out = new FileOutputStream(dest); 
- File fileDelete = new File (src.toString());   	        
+ OutputStream out = new FileOutputStream(dest); 	        
  byte[] buffer = new byte[1024];
  int length;      
  //Copy all file in bytes translation 
@@ -374,7 +373,6 @@ public static void copyAllFileActual(File src, File dest)throws IOException{
     		//Bytes stream method to support all type of file
     		InputStream in = new FileInputStream(src);
     	    OutputStream out = new FileOutputStream(dest); 
-    	    File fileDelete = new File (src.toString());
     	    byte[] buffer = new byte[1024];
     	    int length;
     	        
