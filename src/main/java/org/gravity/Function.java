@@ -29,7 +29,7 @@ public class Function{
  */
 public static String dir() throws IOException{
 	String currentPath;		
-	currentPath=new java.io.File( "." ).getCanonicalPath()+"/";
+	currentPath=new File( "." ).getCanonicalPath()+"/";
 	return currentPath;
 }
 /**
@@ -168,10 +168,8 @@ public static void fileChangExtOne(String fileName, String fileExt, String Newfi
 	}catch(Exception e){
 		System.out.println("Invalid input parameters, please check your input parameters");
 		e.printStackTrace();
-
 	}		
-	return ;
-	}
+}
 /**
  * Function name: fileChangExtMulti
  * 
@@ -214,8 +212,7 @@ public static void fileChangExtMulti(String fileExt, String NewfileExt, String D
 
 	}	
     System.out.println("Conversion process completed.");
-	return ;
-	}
+}
 /**
  * Function name: copyFile
  * 
