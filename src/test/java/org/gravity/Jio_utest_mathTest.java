@@ -21,6 +21,29 @@ public class Jio_utest_mathTest {
 		System.out.println("\nMath class unit test complete.");
 	}
 
+	@Test
+	 public void TestMath_00_mathClass() throws IOException{
+		int input = 2;
+		int constant = 1;
+		Math math = new Math();
+		
+		int plus = 3;
+		int minus = 1;
+		int multiple =2;
+		int divide =2;
+		try{
+			Assert.assertEquals(plus, math.plus(input, constant));
+			Assert.assertEquals(minus, math.minus(input, constant));
+			Assert.assertEquals(multiple, math.multiple(input, constant));
+			Assert.assertEquals(divide, math.divide(input, constant));
+			System.out.print("TestMath_00_mathClass PASSED");			
+		}
+			catch (AssertionFailedError e){
+				System.out.println("TestMath_00_mathClass FAIL: "+e.getMessage());
+			}
+	}
+	
+	
 	
 	@Test
 	 public void TestMath_01_plus() throws IOException{
