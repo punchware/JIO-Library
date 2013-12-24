@@ -9,4 +9,4 @@ This is a video to give a head start on the JiO Library development and basic wa
 
 http://youtu.be/3UYcbrPNgqo
 
-<wiki:video url="http://youtu.be/3UYcbrPNgqo"/>
+<wiki:video url="http://www.youtube.com/watch?v=3UYcbrPNgqo"/>
