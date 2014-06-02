@@ -65,10 +65,9 @@ public static String timestamp() throws IOException{
 public static void fileCreate(String fileName, String fileExt, String Destination){
 	
 	try {
-		//PrintWriter render = new PrintWriter(new FileWriter(Destination+"/"+fileName+"."+fileExt));	
-		//FileWriter create = new FileWriter(Destination+fileName+"."+fileExt);	
 		File create = new File(Destination+fileName+"."+fileExt);
 		create.createNewFile();
+		System.out.println("File: "+fileName+"."+fileExt+" successfully created.");
 	} 
 	catch (IOException iofail) {
 		System.out.println("File creation fail, please check your fileCreate parameters value");
@@ -292,7 +291,7 @@ public static void moveFolder(String srcDir, String destDir) throws IOException{
    File srcFileFolder = new File(srcDir);
    File destFileFolder = new File (destDir);	
    copyFolderActual (srcFileFolder, destFileFolder);
-   deleteFolder(srcDir); //Eliminate dependecies between copy & delete
+   deleteFolder(srcDir); //Eliminate dependencies between copy & delete
     }
 public static void copyFolderActual(File src, File dest)throws IOException{
  if(src.isDirectory()){
@@ -563,4 +562,48 @@ public static void renameFile(String srcFileName, String newFileName, String Pat
 	}
 }
 
+/*
+ * Function Name: Interpret Flag 
+ *
+ *<p>
+ *Return flag with values 0 or 1
+ *
+ *<p>
+ * @param inputFlag input flag in boolean 
+ *  
+ *<p>
+ *
+ * Example:
+ * Function.interpretFlag("0");
+ */
+
+public static String interpretFlag(int input, String positiveMssg, String negativeMssg){
+	//String negativeMssg = "false";
+	//String positiveMssg = "true";
+	String invalidMssg = "Invalid Flag Input";
+	String outputMsg;
+	
+	//Input checker
+		if (input !=0){
+			if (input !=1){
+				outputMsg = invalidMssg;
+			}else{
+		}
+	}
+	
+	if (input ==0){
+		outputMsg = negativeMssg;
+		//System.out.println(outputMsg);
+	}
+	else{
+		outputMsg= positiveMssg;
+		//System.out.println(outputMsg);
+	}	
+	return outputMsg;
+	
+	}
+	
 }
+
+
+
