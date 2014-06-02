@@ -648,7 +648,7 @@ public static void writeOut(String filePath , String fileName , String inputWrit
  * <p>
  * Example:
  * <p>
- * Function.writeOut("C://test1", "test1.txt", "test2.txt");
+ * Function.fileContentCompare("C://test1", "test1.txt", "test2.txt");
  */
 public static void fileContentCompare(String filePath , String fileName1, String fileName2 ) throws FileNotFoundException{
 	
@@ -680,10 +680,10 @@ public static void fileContentCompare(String filePath , String fileName1, String
 
 
 /**
- * Function name: fileContentCompare
+ * Function name: contentLookupOnIndex
  * 
  * <p>
- * Compare two files if there is any differences.
+ * Searching file content for a specific input values.
  * <p>
  * @param filePath Directory path.
  * @param fileName First file name.
@@ -691,7 +691,7 @@ public static void fileContentCompare(String filePath , String fileName1, String
  * <p>
  * Example:
  * <p>
- * Function.writeOut("C://test1", "test1.txt", "Error");
+ * Function.contentLookupOnIndex("C://test1", "test1.txt", "Error");
  */
 public static void contentLookupOnIndex(String filePath , String fileName, String lookupValues ) throws FileNotFoundException{
 	
