@@ -1,11 +1,15 @@
 package org.gravity;
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.io.PrintStream;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -602,7 +606,114 @@ public static String interpretFlag(int input, String positiveMssg, String negati
 	return outputMsg;
 	
 	}
+
+
+/**
+ * Function name: writeOut
+ * 
+ * <p>
+ * Write to the files content.
+ * <p>
+ * @param filePath Directory path.
+ * @param fileName File name.
+ * @param inputWrite Content to write to the file.
+ * <p>
+ * Example:
+ * <p>
+ * Function.writeOut("C://test1", "test2.txt", "Hello Papa Bear");
+ */
+public static void writeOut(String filePath , String fileName , String inputWrite ){
+	try {
+		PrintStream printFile = new PrintStream(new FileOutputStream(filePath + "/" + fileName));
+		printFile.println(inputWrite);
+		System.out.println("Write input to file succeed.");
+		printFile.close(); //Close the file to end the Streaming
+		
+	} catch (FileNotFoundException writeError) {
+		// TODO Auto-generated catch block
+		writeError.printStackTrace();
+	}
+}
+
+
+/**
+ * Function name: fileContentCompare
+ * 
+ * <p>
+ * Compare two files if there is any differences.
+ * <p>
+ * @param filePath Directory path.
+ * @param fileName1 First file name.
+ * @param fileName2 Second file name.
+ * <p>
+ * Example:
+ * <p>
+ * Function.writeOut("C://test1", "test1.txt", "test2.txt");
+ */
+public static void fileContentCompare(String filePath , String fileName1, String fileName2 ) throws FileNotFoundException{
 	
+	String content1="", content2="";
+	BufferedReader bf1 = new BufferedReader(new FileReader(filePath+"/"+fileName1));
+	BufferedReader bf2 = new BufferedReader(new FileReader(filePath+"/"+fileName2));
+			
+		//Try to read the files content
+		try {
+			content1 = bf1.readLine();
+			content2 = bf2.readLine();
+			
+			if (content1.equals(content2)){
+				System.out.println("File Compare: There is no differences of contents between file "
+						+fileName1+" and "+fileName2+" .\n");
+				System.out.println("Content of file:\n"+content1);
+			}else{
+				System.out.println("File Compared: There is a differences in content between files "
+						+fileName1+" and "+fileName2+" .\n");
+				System.out.println("Content in file "+fileName1+" :\n"+content1);
+				System.out.println("Content in file "+fileName2+" :\n"+content2);
+			}
+				
+		} catch (IOException contentReadFail) {
+			// TODO Auto-generated catch block
+			contentReadFail.printStackTrace();
+		}					
+}
+
+
+/**
+ * Function name: fileContentCompare
+ * 
+ * <p>
+ * Compare two files if there is any differences.
+ * <p>
+ * @param filePath Directory path.
+ * @param fileName First file name.
+ * @param lookupValues Values to search in the file content.
+ * <p>
+ * Example:
+ * <p>
+ * Function.writeOut("C://test1", "test1.txt", "Error");
+ */
+public static void contentLookupOnIndex(String filePath , String fileName, String lookupValues ) throws FileNotFoundException{
+	
+	String searchWord = lookupValues, content;
+	BufferedReader bf = new BufferedReader(new FileReader(filePath+"/"+fileName));
+	try {
+		content = bf.readLine();
+		int index = content.indexOf(searchWord);
+		
+		 if (index==-1){
+			 System.out.println("Content Searching: Fail!...Content "+ lookupValues +" not found");
+		 }else{
+			 System.out.println("Content Searching: Content "+ lookupValues +" found at: " +index);
+		 }
+		
+	} catch (IOException e) {
+		System.out.println("Process Error :");
+		e.printStackTrace();
+	}
+}
+
+
 }
 
 
