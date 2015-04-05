@@ -1,0 +1,126 @@
+
+
+# 1. Introduction #
+This document is a user guideline documentation on how to setup Jio Library in your development IDE environment and use a Jio Library for your Java development.
+
+
+# 2. Contents #
+## 2.1. Downloading Jio-Library jar ##
+- Navigate to Jio Download page (https://code.google.com/p/gravity-jio/downloads/list), and download the latest **Jar** package to your local machine.
+
+## 2.2. Setup Jio Lib in your Java development IDE ##
+- **Eclipse:**
+  * Download eclipse IDE from this link (recommended eclipse juno): http://www.eclipse.org/downloads/
+  * Access your eclipse IDE and create a new java project: click **_File_**  --> **_New_** --> **_Java Project_**.
+  * Fill the name of your project, and click **_next_**.
+  * Java Setting page will prompt up, select the **_Libraries_** tab.
+  * Click the **_Add External Jars.._** button.
+  * Navigate search your local space for the JioLib jars you downloaded, and select it.
+  * Once done, verify that JioLib jar appeared in your Libraries list.
+  * Click **_Finish_** button.
+  * Verify that your created project are listed in the **_Package Exp_** list on the left pane.
+  * Expand your project tree and verify the **_Referenced Libraries_** folder existed.
+  * Expand the **_Referenced Libraries_** folder, and verify the Jiolib jar are listed.
+
+## 2.3. Jio Library usage in development ##
+- Create a java class.
+- Import the Jio library:
+  * import org.gravity.Function; (to call only procedure in the function classes).
+  * import org.gravity.Math; (to call only procedure in the Math classes).
+  * import org.gravity.Proc; (to call only procedure in the Proc classes).
+
+- Now you are able to call Jio Libraries features to use in your development. Below is the sytax example of jio Library usage:
+  * Function.copyAllFileActual(arg0, arg1);
+  * Math.divide(input, constant);
+  * Proc.runCL(arg0);
+
+## 2.4. Case Study ##
+- **Case Study 1**: I want to search for a specific file in a specific folder and delete it.
+```
+import org.gravity.Function;
+
+public class test {
+	 public static void main(String[] args) {
+		 String path="C:\\testJio\\";		   // Define the path
+		 Function.fileCheck("test", "txt", path);  //Used file checking function to identify the file existence
+		 Function.fileDel("test", "txt", path);	   //Used file delete function to delete the file
+	 }
+}
+```
+Walla!!.. just 3 line of code's to do your bidding. Return result:
+```
+File name: test.txt existed
+test.txt is deleted!
+```
+
+Example of negative return:
+```
+File name: test.txt not found
+Delete operation is failed.
+```
+
+- **Case Study 2**: I want to search for a **multiples** specific file which is in a .txt format in a specific folder and delete it.
+```
+import org.gravity.Function;
+
+public class test {
+	 public static void main(String[] args) {
+	 
+	       String[] fileName = {"test1","test2","test3"};	// Lists of filename in the array
+	       String path="C:\\testJio\\";             	// Directory path here	
+	 
+	       for (int x = 0; x < fileName.length ;x++){	// Apply for loop
+	       Function.fileCheck(fileName[x], "txt", path); 	//Used the jioLib file checking function to search and check the existence of those file
+	       Function.fileDel(fileName[x], "txt", path);	//Used the jioLib file delete function to delete the file 
+	     }
+      }
+}
+```
+Positive return result:
+```
+File name: test1.txt existed
+test.txt is deleted!
+File name: test2.txt existed
+test.txt is deleted!
+File name: test3.txt existed
+test.txt is deleted!
+```
+
+Example of negative return:
+```
+File name: test1.txt not found
+Delete operation is failed.
+File name: test2.txt not found
+Delete operation is failed.
+File name: test3.txt not found
+Delete operation is failed.
+```
+
+# 3. List of Features #
+## 3.1 Core Function features ##
+| **Function Class** | **Features** | **Syntax** | **Description** | **Version** |
+|:-------------------|:-------------|:-----------|:----------------|:------------|
+| **_Function_** | Creating file | `Function.fileCreate(fileName,fileExtension,destinationPath); ` | Creating file in specific location | 1.0 |
+|  | Copying file | `Function.copyFile(fileName,fileExtension,sourcePath,destinationPath); ` | Copy file from source to destination path | 1.0 |
+|  | Copying all files | `Function.copyAllFiles(sourcePath,destinationPath); ` | Copy all files from source to destination path | 1.0 |
+|  | Checking the file existence | `Function.fileCheck(fileName,fileExtension,sourcePath); ` | Checking file existence in specific location | 1.0 |
+|  | Change file extension | `Function.fileChangExtOne(fileName,fileExtension, newFileExtension,sourcePath); ` | Change the extension of selected single file | 1.0 |
+|  | Change multiple file extension | `Function.fileChangExtMulti(fileExtension,newFileExtension,sourcePath);` | Change the extension of all file with a specified extension to a new extension in the specify source path | 1.0 |
+|  | Move file | `Function.moveFile(fileName,fileExtension,sourcePath,destinationPath);` | Move specified file to designated location | 1.0 |
+|  | Rename file | `Function.unzipFolder(fileName,newFileName,sourcePath);` | Rename file in a specify location | 1.0 |
+|  | Delete Folder | `Function.deleteFolder(sourcePathFolder);` | Delete specified folder. | 1.0 |
+|  | Zipping Folder | `Function.zipFolder(sourcePathFolder);` | Zipping folder into a zip file and saved the zip file in the same location | 1.0 |
+|  | Unzipping Folder | `Function.unzipFolder(sourcePathZipFolder,destinationPath);` | Unzipping the zip folder and save it to the specified destination folder | 1.0 |
+|  | Generate timestamp | `String timestamp = Function.timestamp();` | Creating a string that consist a timestamp of current time and date in this format= **_"yyyyMMdd\_HHmm"_** | 1.0 |
+| **_Math_** | Plus operation | `int out = Math.plus(xValue,yValue); ` | Initiate plus operation of values x and y | 1.0 |
+|  | Minus operation | `int out = Math.minus(xValue,yValue);` | Initiate a minus operation of values x and y  | 1.0 |
+|  | Multiple operation | `int out = Math.multiple(xValue,yValue);` | Initiate a multiple operation of values x and y  | 1.0 |
+|  | Divide operation | `int out = Math.divide(xValue,yValue);` | Initiate a divide operation of values x with y  | 1.0 |
+
+
+
+## 3.2 Core Solution features ##
+| **Function Class** | **Features** | **Syntax** | **Description** | **Version** |
+|:-------------------|:-------------|:-----------|:----------------|:------------|
+| **_Process (Proc)_** | Backup the files | `Proc.fileBackup(folderName,sourcePath,destinationPath);` | Backup the specified folder by copying it to the specified destination and the timestamp at the backup folder name | 1.0 |
+|  | Execute windows command line | `Proc.runCL(winCommandLine);` | Execute the windows command line | 1.0 |
