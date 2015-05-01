@@ -18,14 +18,48 @@ import com.google.zxing.qrcode.encoder.QRCode;
 
 public class QR {
 
-	public static void main(String[] args){
-		String message = args[0];
+	private String message = null;
+	private String path = null;
+	private String filename = null;
+	
+	public QR(String message, String path, String filename){
+		this.message = message;
+		this.path = path;
+		this.filename = filename;
+	}
+
+	public String getMessage(){
+		return message;
+	}
+
+	public void setMessage(String message){
+		this.message = message;
+	}
+
+	public String getPath(){
+		return path;
+	}
+
+	public void setPath(String path){
+		this.path = path;
+	}
+
+	public String getFilename(){
+		return filename;
+	}
+
+	public void setFilename(String filename){
+		this.filename = filename;
+	}
+
+	public BufferedImage encodeQR()
+	{
 		QRCodeWriter qrWriter = new QRCodeWriter();
 		BitMatrix bitmatrix = new BitMatrix(128, 128);
+		BufferedImage bufferedImage = new BufferedImage(128, 128, BufferedImage.TYPE_INT_RGB);
 		
 		try{
 			bitmatrix = qrWriter.encode(message, BarcodeFormat.QR_CODE, 128, 128);
-			BufferedImage bufferedImage = new BufferedImage(128, 128, BufferedImage.TYPE_INT_RGB);
 			bufferedImage.createGraphics();
 			
 			Graphics2D graphics2d = (Graphics2D) bufferedImage.getGraphics();
@@ -40,13 +74,33 @@ public class QR {
 	            }
 	        }
 			
-			String path = args[1]+args[2]+".png";
-			ImageIO.write(bufferedImage, "png", new File(path));
+		}
+		catch(Exception ex){
+			ex.printStackTrace();
+		}
+		return bufferedImage;
+
+	}
+
+	public void generateQR(BufferedImage bufferedImage)
+	{
+		
+		try{
+			
+			String filePath = path+filename+".png";
+			ImageIO.write(bufferedImage, "png", new File(filePath));
 			
 		}
 		catch(Exception ex){
 			ex.printStackTrace();
 		}
 	}
+
+	public static void main(String[] args){
+		QR qrCode = new QR(args[0],args[1],args[2]);	
+		qrCode.generateQR(qrCode.encodeQR());
+	}
+
+
 	
 }
