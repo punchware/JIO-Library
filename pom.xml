@@ -92,7 +92,7 @@
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>cobertura-maven-plugin</artifactId>
-				<version>2.6</version>
+				<version>2.7</version>
 			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -123,7 +123,9 @@
 	</issueManagement>
 
 	<scm>
-		<connection>git@github.com:punchware/JIO-Library.git</connection>
+		<connection>
+			scm:git:https://github.com/punchware/JIO-Library.git
+		</connection>
 		<url>https://github.com/punchware/JIO-Library/</url>
 	</scm>
 
