@@ -25,8 +25,6 @@ public class Function{
  * <p>
  * Use of function: For displaying/assigning path to the current directory path
  * <p>
- * @param currentPath String for string current directory path
- * <p>
  * Example:
  * <p>
  * String localPath = function.dir();
@@ -40,8 +38,6 @@ public static String dir() throws IOException{
  * Function name: timestamp
  * <p>
  * Use of function: capture current server time and date in format: yymmdd_hhmm
- * <p>
- * @param timestamp String for string current directory path
  * <p>
  * Example:
  * <p>
