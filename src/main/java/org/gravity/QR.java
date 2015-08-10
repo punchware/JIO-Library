@@ -24,7 +24,7 @@ public class QR {
 	
 	/**
 	 * Constructor with 3 simple parameter to produce a QR
-	 * <p>
+	 * 
 	 * @param message the message to encode into QR code
 	 * @param path the path where the QR code image to be placed
 	 * @param filename the name of the QR code file to be generated
@@ -41,6 +41,8 @@ public class QR {
 
 	/**
 	 * pojo function to get message
+	 *
+	 * @return	 	message behind QRcode
 	 */
 	public String getMessage(){
 		return message;
@@ -48,6 +50,7 @@ public class QR {
 
 	/**
 	 * pojo function to set message
+	 *
 	 * @param message String to set as message 
 	 */
 	public void setMessage(String message){
@@ -56,6 +59,8 @@ public class QR {
 
 	/**
 	 * pojo function to get path in String
+	 *
+	 * @return		path of QR file
 	 */
 	public String getPath(){
 		return path;
@@ -63,7 +68,8 @@ public class QR {
 
 	/**
 	 * pojo function to set path
-	 * @param message String to set as path
+	 *
+	 * @param path String to set as path
 	 */
 	public void setPath(String path){
 		this.path = path;
@@ -71,6 +77,8 @@ public class QR {
 
 	/**
 	 * pojo function to get filename in String
+	 *
+	 * @return		filename of QR
 	 */
 	public String getFilename(){
 		return filename;
@@ -78,7 +86,8 @@ public class QR {
 
 	/**
 	 * pojo function to set filename
-	 * @param message String to set as filename
+	 *
+	 * @param filename String to set as filename
 	 */
 	public void setFilename(String filename){
 		this.filename = filename;
@@ -86,6 +95,8 @@ public class QR {
 
 	/**
 	 * Encodes message in this.message to qr code bufferedImage
+	 *
+	 * @return		bufferedImage of QR, which is meant to be written to a file of to be manipulated into other image usages
 	 */
 	public BufferedImage encodeQR()
 	{
@@ -119,6 +130,7 @@ public class QR {
 
 	/**
 	 * creates this.filename as png image in the path given in this.path
+	 *
 	 * @param bufferedImage is the image passed down from encodeQR function
 	 */
 	public void generateQR(BufferedImage bufferedImage)
