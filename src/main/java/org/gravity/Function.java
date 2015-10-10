@@ -775,7 +775,62 @@ public static void contentLookupOnIndex(String filePath , String fileName, Strin
 }
 
 
+/**
+ * Function name: listOut
+ * 
+ * <p>
+ * Do the either file or folder list lookup on the designated specified folder.
+ * <p>
+ * @param mode Lookup mode either "file" or "folder"
+ * @param srcPath Designated folder path to do lookup
+ * <p>
+ * Example Usage:
+ * <p>
+ * List<String> myList = new ArrayList<String>(Function.listOut("file", "C:/Work/"));
+ * List<String> myList = new ArrayList<String>(Function.listOut("folder", "C:/Work/"));
+ */
+
+public static List<String> listOut(String mode , String srcPath) throws Exception {
+	
+	// 1. Define the source and destination as a constructor
+	File myPath = new File(srcPath);
+	List<String> myList = new  ArrayList<String>();
+	
+	try {
+		
+		if (mode.contentEquals("file")){
+			
+			//1. Do the file listing existed inside srcFolder
+			File[] myFile = myPath.listFiles();
+			for (File file : myFile){ 
+				if (file.isFile()){
+					myList.add(file.getName()); 
+					}
+				}
+			
+		} else if (mode.contentEquals("folder")){
+			
+			//2. Do the folder listing existed inside srcFolder
+			File[] myFile = myPath.listFiles();
+			
+			for (File file : myFile){ 				
+				if (file.isDirectory()){
+					myList.add(file.getName()); 
+				}
+			}
+			
+		} else {
+			
+			//3. Return an exception invalid mode input
+			System.out.println("FUNCTION::LISTOUT::FAIL::Invalid mode usage. Available mode: \"file\" or \"folder\".");
+		}
+
+	} catch(Exception ex) {
+		System.out.println("EXCEPTION::LISTOUT::" + ex);
+		
+	}
+	
+	return myList;
 }
 
-
-
+}
