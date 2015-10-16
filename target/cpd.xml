@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pmd-cpd>
+   <duplication lines="31" tokens="168">
+      <file line="296"
+            path="D:\Codes\Java\JIO-Library\src\main\java\org\gravity\Function.java"/>
+      <file line="348"
+            path="D:\Codes\Java\JIO-Library\src\main\java\org\gravity\Function.java"/>
+      <codefragment><![CDATA[public static void copyFolderActual(File src, File dest)throws IOException{
+ if(src.isDirectory()){
+ //Check destination, if invalid then create one
+ if(!dest.exists()){
+ dest.mkdir();
+ System.out.println("Executed: Folder moved from "+ src + ", copy to " + dest);
+ }
+ //list all the directory contents
+ String files[] = src.list();
+ for (String file : files) {
+ //Constructor to defined source and destination structure
+ File srcFile = new File(src, file);
+ File destFile = new File(dest, file);
+ //Copy recursively
+ copyFolderActual(srcFile,destFile);
+ 	}
+ }
+ else{
+ //Byte stream method to support all type of file
+ InputStream in = new FileInputStream(src);
+ OutputStream out = new FileOutputStream(dest); 	        
+ byte[] buffer = new byte[1024];
+ int length;      
+ //Copy all file in bytes translation 
+ while ((length = in.read(buffer)) > 0){
+ out.write(buffer, 0, length);
+   }	        
+   //Close the input & output stream
+   in.close();
+   out.close();
+  System.out.println("Executed: File Moved from " + src + " to " + dest);]]></codefragment>
+   </duplication>
+</pmd-cpd>
