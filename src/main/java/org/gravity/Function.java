@@ -12,8 +12,10 @@ import java.io.OutputStream;
 import java.io.PrintStream;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.Enumeration;
+import java.util.List;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 import java.util.zip.ZipOutputStream;
@@ -432,59 +434,122 @@ private static void delete(File dir){
             dir.delete();
         }
     }	
+
+
 /**
- * Function name: zipFolder
+ * Function name: zip
  * 
  * <p>
- * Pointed folder will compressed into zip file and store in the same directory.
+ * This zip function covered both single file zipping and recursive files zipping. How this function differentiate when to zip file and when to zip folder
+ * are: If "srcFileName" provided, this function acknowledge this as zipping a single file request. If "srcFileName" is $null, this function will zip all
+ * the files existed in the provided "srcFolder".
  * <p>
- * @param srcDir Folder directory to be zip.
+ * @param srcFileName Single filename of the file to be zip.
+ * @param srcFolder Source folder path.
+ * @param destFolder Destination folder path.
  * <p>
  * Example:
  * <p>
- * Function.zipFolder("C://test1");
+ * Function.zip("file.txt", "C:/Work01/" , "C:/Work02/");
  */   
-public static void zipFolder(String srcDir) throws Exception {
-	String destZipFile = srcDir+".zip";
-	ZipOutputStream zip = null;
-    FileOutputStream writeOut = null;
-    //Declare output method
-    writeOut = new FileOutputStream(destZipFile);
-    zip = new ZipOutputStream(writeOut);
-    //Zipping execution
-    ZipFolder("", srcDir, zip);
-    zip.flush();
-    zip.close();
-    System.out.println("Executed: Folder "+srcDir+" compressed.");
-  }
-static private void ZipFolder(String path, String srcFolder, ZipOutputStream zip)throws Exception {
-	File folder = new File(srcFolder);
 
-	for (String fileName : folder.list()) {
-      if (path.equals("")) {
-    	  ZipFile(folder.getName(), srcFolder + "/" + fileName, zip);
-      } 
-      else{
-    	  ZipFile(path + "/" + folder.getName(), srcFolder + "/" + fileName, zip);
-      }
-    }
-  } 
-static private void ZipFile(String path, String srcFile, ZipOutputStream zip)throws Exception {
+public static void zip(String srcFileName, String srcFolder , String destFolder) throws Exception {
+	
+	// 1. Define the source and destination as a constructor
+	File srcPath = new File(srcFolder);
+	File destPath = new File(destFolder);
+	String fullSrc = srcFolder+srcFileName;
+	String zipName = srcFileName.replaceFirst("[.][^.]+$", ""); 
+	
+	byte[] buffer = new byte[1024];
 
-    File folder = new File(srcFile);
-    if (folder.isDirectory()) {
-    	ZipFolder(path, srcFile, zip);
-    } 
-    else{
-      byte[] buf = new byte[1024];
-      int len;
-      FileInputStream in = new FileInputStream(srcFile);
-      zip.putNextEntry(new ZipEntry(path + "/" + folder.getName()));
-      while ((len = in.read(buf)) > 0) {
-        zip.write(buf, 0, len);
-      }
-    }
-  } 
+	try {
+		// 2. Condition to check the validity of the source and destination
+		if (srcPath.isDirectory() || destPath.isDirectory()){
+			
+			// 3. Do the folder zipping process
+			if (srcFileName.equals(null) ||srcFileName.isEmpty() ) {
+				
+				// 3.1 Get all files existed in the source folder
+				List<File> fileList = new ArrayList<File>();
+				File[] files = srcPath.listFiles();
+				
+				for (File file : files){ fileList.add(file); }
+				
+				// 3.2 Zip the File Object
+				FileOutputStream outputStream = new FileOutputStream(srcPath.getName() + ".zip");
+				ZipOutputStream outputZip = new ZipOutputStream(outputStream);
+				
+				for (File file : fileList) {
+					if (!file.isDirectory()) { 
+													
+						FileInputStream inputStream = new FileInputStream(file);
+						
+						String zipFilePath = file.getCanonicalPath().substring(srcPath.getCanonicalPath().length() + 1,
+								file.getCanonicalPath().length());
+						
+						System.out.println("Writing '" + zipFilePath + "' to zip file");
+						ZipEntry zipEntry = new ZipEntry(zipFilePath);
+						outputZip.putNextEntry(zipEntry);
+
+						byte[] bytes = new byte[1024];
+						int length;
+						
+						while ((length = inputStream.read(bytes)) >= 0) {
+							outputZip.write(bytes, 0, length);
+						}
+                        
+						outputZip.closeEntry();
+						inputStream.close();
+						
+					}
+				}
+				
+				outputZip.close();
+				outputStream.close();
+				
+				//3.3 Move zipped package to destination folder
+				File fileToMove = new File(srcPath.getName() + ".zip");
+				
+				if (fileToMove.renameTo(new File(destFolder+(srcPath.getName() + ".zip")))){
+
+		    		System.out.println("FUNCTION::ZIP:: Successfully zipping folder: "+(srcPath.getName() + ".zip")+", to location: "+destFolder+".");
+					
+				} else {
+					
+					System.out.println("FUNCTION::ZIP:: Unable to move zipping folder: "+(srcPath.getName() + ".zip")+", to location: "+destFolder+".");
+					
+				}
+				
+			} else { 
+				//4. Do the file zipping process
+				FileOutputStream outputStream = new FileOutputStream(destPath+"/"+zipName+".zip");
+				
+				ZipOutputStream outputZip = new ZipOutputStream(outputStream);
+				ZipEntry zipEntry = new ZipEntry(srcFileName);
+				outputZip.putNextEntry(zipEntry);
+				FileInputStream inputStream = new FileInputStream(fullSrc);
+				int len;
+	    		while ((len = inputStream.read(buffer)) > 0) {
+	    			outputZip.write(buffer, 0, len);
+	    		}
+	    		
+	    		inputStream.close();
+	    		outputZip.closeEntry();
+	    		outputZip.close();
+				
+	    		System.out.println("FUNCTION::ZIP:: Successfully zipping file: "+srcPath+", to location: "+destFolder+".");
+				
+			} 
+		}
+	
+	} catch(Exception ex) {
+		System.out.println("EXCEPTION::ZIP::" + ex);
+		
+	}
+}
+
+
 /**
  * Function name: unzipFolder
  * 
@@ -710,7 +775,62 @@ public static void contentLookupOnIndex(String filePath , String fileName, Strin
 }
 
 
+/**
+ * Function name: listOut
+ * 
+ * <p>
+ * Do the either file or folder list lookup on the designated specified folder.
+ * <p>
+ * @param mode Lookup mode either "file" or "folder"
+ * @param srcPath Designated folder path to do lookup
+ * <p>
+ * Example Usage:
+ * <p>
+ * List<String> myList = new ArrayList<String>(Function.listOut("file", "C:/Work/"));
+ * List<String> myList = new ArrayList<String>(Function.listOut("folder", "C:/Work/"));
+ */
+
+public static List<String> listOut(String mode , String srcPath) throws Exception {
+	
+	// 1. Define the source and destination as a constructor
+	File myPath = new File(srcPath);
+	List<String> myList = new  ArrayList<String>();
+	
+	try {
+		
+		if (mode.contentEquals("file")){
+			
+			//1. Do the file listing existed inside srcFolder
+			File[] myFile = myPath.listFiles();
+			for (File file : myFile){ 
+				if (file.isFile()){
+					myList.add(file.getName()); 
+					}
+				}
+			
+		} else if (mode.contentEquals("folder")){
+			
+			//2. Do the folder listing existed inside srcFolder
+			File[] myFile = myPath.listFiles();
+			
+			for (File file : myFile){ 				
+				if (file.isDirectory()){
+					myList.add(file.getName()); 
+				}
+			}
+			
+		} else {
+			
+			//3. Return an exception invalid mode input
+			System.out.println("FUNCTION::LISTOUT::FAIL::Invalid mode usage. Available mode: \"file\" or \"folder\".");
+		}
+
+	} catch(Exception ex) {
+		System.out.println("EXCEPTION::LISTOUT::" + ex);
+		
+	}
+	
+	return myList;
 }
 
-
-
+}
