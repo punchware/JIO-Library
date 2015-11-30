@@ -85,7 +85,7 @@
 			</plugin>
 		</plugins>
 
-		<defaultGoal>clean install javadoc:javadoc changelog:changelog site:site site:jar</defaultGoal>
+		<defaultGoal>clean install javadoc:javadoc site:site site:jar</defaultGoal>
 	</build>
 
 	<reporting>
