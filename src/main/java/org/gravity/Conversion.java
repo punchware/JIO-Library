@@ -69,14 +69,7 @@ public class Conversion {
 		}
 
 		public double convert(double value, Length from, Length to){
-			//if(instanceOf(from)&&to.instanceOf(to)){
 				return convert(value, from, to);
-			//}
-			//else{
-			//	Exception ex = new Exception();
-				//ex.setMessage("mismatched unit");
-			//	throw ex;
-			//}
 		}
 
 		private double convert(double value, double from, double to){
