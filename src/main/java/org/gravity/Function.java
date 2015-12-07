@@ -800,13 +800,6 @@ public static void contentLookupOnIndex(String filePath , String fileName, Strin
  * </p>
  * @param mode Lookup mode either "file" or "folder"
  * @param srcPath Designated folder path to do lookup
- * <p>
- * <![CDATA[<!-- 
- * Example Usage:
- * List<String> myList = new ArrayList<String>(Function.listOut("file", "C:/Work/"));
- * List<String> myList = new ArrayList<String>(Function.listOut("folder", "C:/Work/"));
- * HTML Comments -->]]>
- * </p>
  */
 
 public static List<String> listOut(String mode , String srcPath) throws Exception {
