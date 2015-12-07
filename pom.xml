@@ -15,7 +15,9 @@
 		Provide an easy and simplified used of i/o function.
 		Extra features for users easy to manipulate the function.
 	</description>
-
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
 	<dependencies>
 		<dependency>
 			<groupId>junit</groupId>
