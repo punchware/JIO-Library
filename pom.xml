@@ -37,8 +37,16 @@
 	</dependencies>
 
 	<build>
-
 		<plugins>
+			<plugin>
+				<artifactId>maven-release-plugin</artifactId>
+				<version>2.4.1</version>
+				<configuration>
+					<useReleaseProfile>false</useReleaseProfile>
+					<releaseProfiles>release</releaseProfiles>
+					<autoVersionSubmodules>true</autoVersionSubmodules>
+				</configuration>
+			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-pmd-plugin</artifactId>
@@ -128,7 +136,7 @@
 					<type>date</type>
 					<dates>
 						<date implementation="java.lang.String">2013-01-01</date>
-						<date implementation="java.lang.String">2015-12-01</date>
+						<date implementation="java.lang.String">2015-12-31</date>
 					</dates>
 					<dateFormat>yyyy-MM-dd</dateFormat>
 				</configuration>
@@ -147,7 +155,16 @@
 		<connection>scm:git:git://github.com/punchware/JIO-Library.git</connection>
 		<developerConnection>scm:git:git@github.com/punchware/JIO-Library.git</developerConnection>
 		<url>https://github.com/punchware/JIO-Library/</url>
+		<tag>HEAD</tag>
 	</scm>
+
+	<distributionManagement>
+		<repository>
+			<id>bintray</id>
+			<url>https://api.bintray.com/maven/punchware/maven/jiolib</url>
+		</repository>
+	</distributionManagement>
+
 
 	<organization>
 		<name>Punch</name>
@@ -243,6 +260,40 @@
 			<timezone>+8</timezone>
 		</developer>
 	</developers>
+
+	<profiles>
+		<profile>
+			<id>release</id>
+			<build>
+				<plugins>
+					<plugin>
+						<artifactId>maven-source-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>attach-sources</id>
+								<goals>
+									<goal>jar</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+					<plugin>
+						<artifactId>maven-javadoc-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>attach-javadocs</id>
+								<goals>
+									<goal>jar</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
+
+
 	<!-- release: mvn clean release:clean release:prepare release:perform -Dmaven.test.failure.ignore=true 
 	-Dmaven.test.skip=true -Darguments='-Dmaven.test.skip=true' -->
 </project>
