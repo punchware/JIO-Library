@@ -164,6 +164,8 @@ public class Jio_utest_functionTest {
 //				System.out.println("Error message: "+e.getMessage());
 //			}
 
+        function.deleteFolder(folder1.getCanonicalPath());
+        function.deleteFolder(folder2.getCanonicalPath());
 	}
 			
 	@Test
@@ -230,7 +232,7 @@ public class Jio_utest_functionTest {
 			Actual = "False";
 		  	Assert.assertEquals("fail in TestFunction_10_moveFile()!", "False", Actual);
 		}
-		
+		Function.deleteFolder(dir.getCanonicalPath());
 	} 
 
 //	@Test
