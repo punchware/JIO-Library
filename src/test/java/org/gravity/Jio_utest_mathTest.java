@@ -132,6 +132,26 @@ public class Jio_utest_mathTest {
 			}
 			
 		}
+
+		@Test
+		public void TestMath_05_axisScale( ) throws IOException{
+			
+			int[ ] axis = Math.axisScale( 0, 10, 5 );
+
+			try{
+				Assert.assertEquals( 6, axis.length );
+				Assert.assertEquals( 0, axis[ 0 ] );
+				Assert.assertEquals( 2, axis[ 1 ] );
+				Assert.assertEquals( 4, axis[ 2 ] );
+				Assert.assertEquals( 6, axis[ 3 ] );
+				Assert.assertEquals( 8, axis[ 4 ] );
+				Assert.assertEquals( 10, axis[ 5 ] );
+
+				System.out.print( "TestMath_05_axisScale test PASSED" );
+			}catch( AssertionFailedError e ){
+				System.out.print( "TestMath_05_axisScale test FAILED: " + e.getMessage( ) );
+			}
+		}
 	
 
 }
