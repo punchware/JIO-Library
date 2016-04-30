@@ -109,7 +109,7 @@
 			</plugin>
 		</plugins>
 
-		<defaultGoal>clean install site:site site:jar</defaultGoal>
+		<defaultGoal>clean site:site site:jar package install</defaultGoal>
 	</build>
 
 	<reporting>
