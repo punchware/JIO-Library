@@ -14,13 +14,14 @@ public class Window extends java.awt.Frame{
 
 	public void initializeWithCommonBehavior(){
 		this.addWindowListener(new JIOWindowAdapter());
+		this.setSize(320,240);
 	}
 
 	public void draw(){
-
+		this.setVisible(true);
 	}
 
-	public static void Main(String[] args)
+	public static void main(String[] args)
 	{
 		Window win = new Window();
 	}
