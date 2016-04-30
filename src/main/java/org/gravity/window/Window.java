@@ -8,6 +8,8 @@ public class Window extends java.awt.Frame{
 	public Window()
 	{
 		initializeWithCommonBehavior();
+		configureFrame();
+		fillFrame();
 		draw();
 
 	}
@@ -16,6 +18,10 @@ public class Window extends java.awt.Frame{
 		this.addWindowListener(new JIOWindowAdapter());
 		this.setSize(320,240);
 	}
+
+	public void configureFrame(){}
+
+	public void fillFrame(){}
 
 	public void draw(){
 		this.setVisible(true);
