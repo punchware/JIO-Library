@@ -109,7 +109,6 @@
 			</plugin>
 		</plugins>
 
-		<defaultGoal>clean site:site site:jar package install</defaultGoal>
 	</build>
 
 	<reporting>
@@ -303,6 +302,15 @@
 						</executions>
 					</plugin>
 				</plugins>
+			</build>
+		</profile>
+		<profile>
+			<id>product</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<build>
+				<defaultGoal>clean site:site site:jar package install</defaultGoal>
 			</build>
 		</profile>
 	</profiles>
