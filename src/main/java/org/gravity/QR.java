@@ -7,9 +7,12 @@ import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.IOException;
 
 import javax.imageio.ImageIO;
 import javax.imageio.ImageTypeSpecifier;
+import javax.imageio.stream.ImageOutputStreamImpl;
+import javax.imageio.stream.ImageOutputStream;
 
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.common.BitMatrix;
@@ -147,6 +150,23 @@ public class QR {
 			ex.printStackTrace();
 		}
 	}
+
+	public byte[] generateQR(BufferedImage bufferedImage,ImageOutputStream ioStream)
+	{
+
+		ByteArrayOutputStream bos = new ByteArrayOutputStream(255);
+		byte[] byteArray = new byte[255];
+		try{
+			ioStream = ImageIO.createImageOutputStream(bos);
+			ImageIO.write(bufferedImage, "png", ioStream);
+			ImageIO.write(bufferedImage, "png", new File("C:\\Users\\fazreil\\test.png"));
+			ioStream.write(byteArray);
+		}
+		catch(Exception ex){
+			ex.printStackTrace();
+		}
+		return byteArray;
+		}
 
 	public static void main(String[] args){
 		QR qrCode = new QR(args[0],args[1],args[2]);	
