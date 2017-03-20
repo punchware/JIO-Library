@@ -5,14 +5,12 @@ import java.awt.Button;
 import java.awt.TextField;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import org.gravity.QR;
 import java.awt.Image;
 import javax.imageio.ImageIO;
-import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.awt.Color;
 import java.awt.image.BufferedImage;
@@ -21,6 +19,11 @@ import java.io.File;
 
 public class WindowSample extends Window{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	@Override 
 	public void configureFrame(){
 		final JPanel panel = new JPanel();
@@ -32,13 +35,11 @@ public class WindowSample extends Window{
 		button1.setLabel("Click here!");	
 		button1.addActionListener(new ActionListener(){
 
-			@Override
 			public void actionPerformed(ActionEvent e)
 			{
 				try{
 					ByteArrayOutputStream bos = new ByteArrayOutputStream(255);
 					qr.setMessage(textField1.getText());
-					byte[] byteArray = qr.generateQR(qr.encodeQR(),ImageIO.createImageOutputStream(bos));
 					//ImageIcon newImageIcon = new ImageIcon(byteArray);
 					Image image = ImageIO.read(new File("C:\\Users\\fazreil\\test.png"));
 					BufferedImage bImage = (BufferedImage)image;
@@ -60,10 +61,14 @@ public class WindowSample extends Window{
 
 	public class QRWindow extends Window{
 
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
 		private ImageIcon imageIcon;
 
 		public QRWindow(ImageIcon imageIcon){
-			imageIcon = imageIcon;
+			this.imageIcon = imageIcon;
 			System.out.println(imageIcon.toString());
 		}
 
