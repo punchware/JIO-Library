@@ -107,6 +107,14 @@
 					</archive>
 				</configuration>
 			</plugin>
+			<plugin>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<configuration>
+					<descriptorRefs>
+						<descriptorRef>jar-with-dependencies</descriptorRef>
+					</descriptorRefs>
+				</configuration>
+			</plugin>
 		</plugins>
 
 	</build>
@@ -310,7 +318,7 @@
 				<activeByDefault>true</activeByDefault>
 			</activation>
 			<build>
-				<defaultGoal>clean site:site site:jar package install</defaultGoal>
+				<defaultGoal>clean site:site site:jar package install assembly:assembly</defaultGoal>
 			</build>
 		</profile>
 	</profiles>
