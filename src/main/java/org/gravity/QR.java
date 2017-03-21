@@ -144,7 +144,7 @@ public class QR {
 		}
 	}
 
-	public byte[] generateQR(BufferedImage bufferedImage,ImageOutputStream ioStream)
+	public byte[] generateQR(BufferedImage bufferedImage,ImageOutputStream ioStream, File file)
 	{
 
 		ByteArrayOutputStream bos = new ByteArrayOutputStream(255);
@@ -152,7 +152,7 @@ public class QR {
 		try{
 			ioStream = ImageIO.createImageOutputStream(bos);
 			ImageIO.write(bufferedImage, "png", ioStream);
-			ImageIO.write(bufferedImage, "png", new File("C:\\Users\\fazreil\\test.png"));
+			ImageIO.write(bufferedImage, "png", file);
 			ioStream.write(byteArray);
 		}
 		catch(Exception ex){

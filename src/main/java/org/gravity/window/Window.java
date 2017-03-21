@@ -2,6 +2,10 @@ package org.gravity.window;
 
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 
 public class Window extends java.awt.Frame{
 	
@@ -27,6 +31,15 @@ public class Window extends java.awt.Frame{
 		this.setVisible(true);
 	}
 
+	protected void testNull(File file){
+		if(file == null){
+			System.out.println("null file");
+		}
+		else{
+			System.out.println("not null file");	
+		}
+	}
+	
 	public static void main(String[] args)
 	{
 		Window win = new Window();
