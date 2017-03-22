@@ -5,18 +5,35 @@ import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
+
 import javax.imageio.ImageIO;
 import javax.imageio.stream.ImageOutputStream;
 
 import com.google.zxing.BarcodeFormat;
+import com.google.zxing.BinaryBitmap;
+import com.google.zxing.DecodeHintType;
+import com.google.zxing.EncodeHintType;
+import com.google.zxing.MultiFormatReader;
+import com.google.zxing.NotFoundException;
+import com.google.zxing.Result;
+import com.google.zxing.client.j2se.BufferedImageLuminanceSource;
 import com.google.zxing.common.BitMatrix;
+import com.google.zxing.common.HybridBinarizer;
 import com.google.zxing.qrcode.QRCodeWriter;
+import com.google.zxing.qrcode.decoder.ErrorCorrectionLevel;
 
 public class QR {
 
 	private String message = null;
 	private String path = null;
 	private String filename = null;
+	
+	public QR(){
+		
+	}
 	
 	/**
 	 * Constructor with 3 simple parameter to produce a QR
@@ -159,7 +176,27 @@ public class QR {
 			ex.printStackTrace();
 		}
 		return byteArray;
+	}
+	
+	public String readQR(File file){
+		String qrDecoded = null;
+
+		try{
+			BinaryBitmap binaryBitmap = new BinaryBitmap(
+				new HybridBinarizer(
+			        new BufferedImageLuminanceSource(
+			            ImageIO.read(file)
+			            )
+			        ));
+			Result qrCodeResult = new MultiFormatReader().decode(binaryBitmap);
+			qrDecoded = qrCodeResult.getText();
+		}catch(NotFoundException nfEx){
+			nfEx.printStackTrace();
+		}catch(IOException ioEx){
+			ioEx.printStackTrace();
 		}
+		return qrDecoded;
+	}
 
 	public static void main(String[] args){
 		QR qrCode = new QR(args[0],args[1],args[2]);	

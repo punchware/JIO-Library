@@ -10,6 +10,8 @@ import java.awt.event.ActionEvent;
 import javax.swing.JPanel;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import org.gravity.QR;
 import java.awt.Image;
 import javax.imageio.ImageIO;
@@ -91,6 +93,7 @@ public class WindowSample extends Window{
 		private static final long serialVersionUID = 1L;
 		private ImageIcon imageIcon;
 		private File file = null;
+		private QR qrReader = new QR("","","");
 		
 		public QRWindow(ImageIcon imageIcon, File file){
 			this.imageIcon = imageIcon;
@@ -112,6 +115,8 @@ public class WindowSample extends Window{
 					BufferedImage picture = ImageIO.read(this.file);
 					JLabel label = new JLabel(new ImageIcon(picture));
 					this.add(label);
+					QR qrReader = new QR("","","");
+					JLabel text = new JLabel(qrReader.readQR(file));
 					
 				}
 				else{
@@ -127,6 +132,7 @@ public class WindowSample extends Window{
 
 		public void draw(){
 			this.setVisible(true);
+			new javax.swing.JOptionPane().showMessageDialog(null, qrReader.readQR(file), "QR result", JOptionPane.INFORMATION_MESSAGE, null);
 		}
 	}
 
