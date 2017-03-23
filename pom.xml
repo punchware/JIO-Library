@@ -157,7 +157,7 @@
 					<type>date</type>
 					<dates>
 						<date implementation="java.lang.String">2015-12-17</date>
-						<date implementation="java.lang.String">2016-12-31</date>
+						<date implementation="java.lang.String">2017-12-31</date>
 					</dates>
 					<dateFormat>yyyy-MM-dd</dateFormat>
 				</configuration>
