@@ -25,7 +25,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 
-public class WindowSample extends Window{
+public class WindowSampleRGB extends Window{
 	
 	/**
 	 * 
@@ -52,7 +52,7 @@ public class WindowSample extends Window{
 					//ImageIcon newImageIcon = new ImageIcon(byteArray);
 					File file = new File("test.png");
 					file = createFile(file);
-					byte[] byteArray = qr.generateQR(qr.encodeQR(),ImageIO.createImageOutputStream(bos), file);
+					byte[] byteArray = qr.generateQR(qr.encodeRGBQR(),ImageIO.createImageOutputStream(bos), file);
 					Image image = ImageIO.read(file);
 					BufferedImage bImage = (BufferedImage)image;
 					ImageIcon newImageIcon = new ImageIcon(bImage);
@@ -129,13 +129,13 @@ public class WindowSample extends Window{
 
 		public void draw(){
 			this.setVisible(true);
-			new javax.swing.JOptionPane().showMessageDialog(null, qrReader.readQR(file), "QR result", JOptionPane.INFORMATION_MESSAGE, null);
+//			new javax.swing.JOptionPane().showMessageDialog(null, qrReader.readRGBQR(file), "QR result", JOptionPane.INFORMATION_MESSAGE, null);
 		}
 	}
 
 	public static void main(String args[])
 	{
-		WindowSample sampleApp = new WindowSample();
+		WindowSampleRGB sampleApp = new WindowSampleRGB();
 	}
 
 

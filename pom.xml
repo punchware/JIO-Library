@@ -1,4 +1,5 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>org.gravity.jio</groupId>
@@ -33,6 +34,12 @@
 			<artifactId>core</artifactId>
 			<version>3.2.0</version>
 		</dependency>
+		<dependency>
+			<groupId>com.google.android</groupId>
+			<artifactId>android</artifactId>
+			<version>2.3.1</version>
+		</dependency>
+
 	</dependencies>
 
 	<build>
@@ -325,5 +332,5 @@
 
 
 	<!-- release: mvn clean release:clean release:prepare release:perform -Dmaven.test.failure.ignore=true 
-	-Dmaven.test.skip=true -Darguments='-Dmaven.test.skip=true' -->
+		-Dmaven.test.skip=true -Darguments='-Dmaven.test.skip=true' -->
 </project>
