@@ -1,4 +1,5 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>org.gravity.jio</groupId>
@@ -33,6 +34,12 @@
 			<artifactId>core</artifactId>
 			<version>3.2.0</version>
 		</dependency>
+		<dependency>
+			<groupId>com.google.android</groupId>
+			<artifactId>android</artifactId>
+			<version>2.3.1</version>
+		</dependency>
+
 	</dependencies>
 
 	<build>
@@ -92,9 +99,31 @@
 					</dependency>
 				</dependencies>
 			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<version>2.6</version>
+				<configuration>
+					<excludes>
+						<exclude>**/cobertura.properties*</exclude>
+					</excludes>
+					<archive>
+						<manifest>
+							<addClasspath>true</addClasspath>
+						</manifest>
+					</archive>
+				</configuration>
+			</plugin>
+			<plugin>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<configuration>
+					<descriptorRefs>
+						<descriptorRef>jar-with-dependencies</descriptorRef>
+					</descriptorRefs>
+				</configuration>
+			</plugin>
 		</plugins>
 
-		<defaultGoal>clean install site:site site:jar</defaultGoal>
 	</build>
 
 	<reporting>
@@ -135,7 +164,7 @@
 					<type>date</type>
 					<dates>
 						<date implementation="java.lang.String">2015-12-17</date>
-						<date implementation="java.lang.String">2016-12-31</date>
+						<date implementation="java.lang.String">2017-12-31</date>
 					</dates>
 					<dateFormat>yyyy-MM-dd</dateFormat>
 				</configuration>
@@ -290,9 +319,18 @@
 				</plugins>
 			</build>
 		</profile>
+		<profile>
+			<id>product</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<build>
+				<defaultGoal>clean site:site site:jar package install assembly:assembly</defaultGoal>
+			</build>
+		</profile>
 	</profiles>
 
 
 	<!-- release: mvn clean release:clean release:prepare release:perform -Dmaven.test.failure.ignore=true 
-	-Dmaven.test.skip=true -Darguments='-Dmaven.test.skip=true' -->
+		-Dmaven.test.skip=true -Darguments='-Dmaven.test.skip=true' -->
 </project>
