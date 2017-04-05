@@ -129,7 +129,7 @@ public class WindowSampleRGB extends Window{
 
 		public void draw(){
 			this.setVisible(true);
-//			new javax.swing.JOptionPane().showMessageDialog(null, qrReader.readRGBQR(file), "QR result", JOptionPane.INFORMATION_MESSAGE, null);
+			new javax.swing.JOptionPane().showMessageDialog(null, qrReader.readRGBQR(file), "QR result", JOptionPane.INFORMATION_MESSAGE, null);
 		}
 	}
 
