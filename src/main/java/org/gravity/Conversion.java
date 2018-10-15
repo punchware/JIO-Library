@@ -48,6 +48,11 @@ public class Conversion {
 		//Conversion con = new Conversion();
 		Length len = new Conversion().new Length();		
 		System.out.println(len.convert(1,len.KILOMETER,len.MILE));
+		System.out.println(len.convert(1,len.MILE,len.KILOMETER));
+		
+		Weight weight = new Conversion().new Weight();
+		System.out.println(weight.convert(1, weight.GRAM, weight.KILOGRAM));
+		System.out.println(weight.convert(1, weight.KILOGRAM, weight.GRAM));
 	}
 
 	public class Length extends Conversion {
@@ -73,6 +78,29 @@ public class Conversion {
 		}
 
 		private double convert(double value, double from, double to){
+			return super.convert(value, from, to);
+		}
+	}
+	
+	public class Weight extends Conversion {
+		public static final double GRAM = 1;
+		public static final double KILOGRAM = 1000;
+		
+		private double unit;
+
+		public double getUnit() {
+			return unit;
+		}
+
+		public void setUnit(double unit) {
+			this.unit = unit;
+		}
+
+		public double convert(double value, Weight from, Weight to) {
+			return convert(value, from, to);
+		}
+		
+		private double convert(double value, double from, double to) {
 			return super.convert(value, from, to);
 		}
 	}
