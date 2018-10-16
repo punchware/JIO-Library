@@ -50,22 +50,22 @@ public class Conversion {
 		return value;
 	}
 
-	public static void main(String[] args) {
-		//Conversion con = new Conversion();
-		Length len = new Conversion().new Length();
-		System.out.printf("KILOMETER TO MILE: %f\n", len.convert(1,len.KILOMETER,len.MILE));
-		System.out.printf("MILE TO KILOMETER: %f\n", len.convert(1,len.MILE,len.KILOMETER));
-		System.out.printf("METER TO KILOMETER: %f\n", len.convert(1,len.METER,len.KILOMETER));
-		System.out.printf("KILOMETER TO METER: %f\n", len.convert(1,len.KILOMETER,len.METER));
-		System.out.printf("CENTIMETER TO METER: %f\n", len.convert(2,len.CENTIMETER,len.METER));
-		
-		Weight weight = new Conversion().new Weight();
-		System.out.printf("GRAM TO KILOGRAM: %f\n", len.convert(1,weight.GRAM,weight.KILOGRAM));
-		System.out.printf("KILOGRAM TO GRAM: %f\n", len.convert(1,weight.KILOGRAM,weight.GRAM));
-		System.out.printf("KILOGRAM TO KILOGRAM: %f\n", len.convert(2,weight.KILOGRAM,weight.KILOGRAM));
-		System.out.printf("KILOGRAM TO GRAM: %f\n", len.convert(0,weight.KILOGRAM,weight.GRAM));
-		System.out.printf("GRAM TO KILOGRAM: %f\n", len.convert(0,weight.GRAM,weight.KILOGRAM));
-	}
+//	public static void main(String[] args) {
+//		//Conversion con = new Conversion();
+//		Length len = new Conversion().new Length();
+//		System.out.printf("KILOMETER TO MILE: %f\n", len.convert(1,len.KILOMETER,len.MILE));
+//		System.out.printf("MILE TO KILOMETER: %f\n", len.convert(1,len.MILE,len.KILOMETER));
+//		System.out.printf("METER TO KILOMETER: %f\n", len.convert(1,len.METER,len.KILOMETER));
+//		System.out.printf("KILOMETER TO METER: %f\n", len.convert(1,len.KILOMETER,len.METER));
+//		System.out.printf("CENTIMETER TO METER: %f\n", len.convert(2,len.CENTIMETER,len.METER));
+//		
+//		Weight weight = new Conversion().new Weight();
+//		System.out.printf("GRAM TO KILOGRAM: %f\n", len.convert(1,weight.GRAM,weight.KILOGRAM));
+//		System.out.printf("KILOGRAM TO GRAM: %f\n", len.convert(1,weight.KILOGRAM,weight.GRAM));
+//		System.out.printf("KILOGRAM TO KILOGRAM: %f\n", len.convert(2,weight.KILOGRAM,weight.KILOGRAM));
+//		System.out.printf("KILOGRAM TO GRAM: %f\n", len.convert(0,weight.KILOGRAM,weight.GRAM));
+//		System.out.printf("GRAM TO KILOGRAM: %f\n", len.convert(0,weight.GRAM,weight.KILOGRAM));
+//	}
 
 	public class Length extends Conversion {
 		public static final double METER = 1;
@@ -86,7 +86,7 @@ public class Conversion {
 		}
 
 		public double convert(double value, Length from, Length to){
-				return convert(value, from, to);
+			return convert(value, from, to);
 		}
 
 		public double convert(double value, double from, double to){
