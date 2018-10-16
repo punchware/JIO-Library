@@ -86,7 +86,7 @@ public class Conversion {
 		}
 
 		public double convert(double value, Length from, Length to){
-			return convert(value, from, to);
+			return super.convert(value, from.getUnit(), to.getUnit());
 		}
 
 		public double convert(double value, double from, double to){
@@ -97,6 +97,9 @@ public class Conversion {
 	public class Weight extends Conversion {
 		public static final double GRAM = 1;
 		public static final double KILOGRAM = 0.001;
+		public static final double POUND = 0.0022046226218488;
+		public static final double OUNCE = 0.03527396194958;
+		public static final double TONNE = 0.000001;
 		
 		private double unit;
 
@@ -109,7 +112,7 @@ public class Conversion {
 		}
 		
 		public double convert(double value, Weight from, Weight to){
-			return convert(value, from, to);
+			return super.convert(value, from.getUnit(), to.getUnit());
 		}
 	
 		public double convert(double value, double from, double to){
