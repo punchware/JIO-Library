@@ -10,7 +10,7 @@ jobs:
 
       - checkout
 
-      - run: mvn clean package install
+      - run: mvn clean package install -Djdk.net.URLClassPath.disableClassPathURLCheck=true
 
       - store_test_results:
           path: target/surefire-reports
