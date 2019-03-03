@@ -4,10 +4,11 @@ jobs:
     working_directory: ~/jio-lib
 
     docker:
-      - image: circleci/openjdk:8-jdk-browsers
       - image: buildpack-deps:trusty
 
     steps:
+
+      - run: apt-get install maven -y
 
       - checkout
 
