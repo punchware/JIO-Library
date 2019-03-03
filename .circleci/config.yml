@@ -4,13 +4,14 @@ jobs:
     working_directory: ~/jio-lib
 
     docker:
+      - image: circleci/openjdk:8-jdk-browsers
       - image: buildpack-deps:trusty
 
     steps:
 
       - checkout
 
-      - run: mvn clean package install -Djdk.net.URLClassPath.disableClassPathURLCheck=true
+      - run: mvn clean package install
 
       - store_test_results:
           path: target/surefire-reports
