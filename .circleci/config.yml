@@ -10,7 +10,7 @@ jobs:
 
       - checkout
 
-      - run: mvn clean package install -DskipTests
+      - run: mvn clean package install assembly:assembly -DskipTests
 
       - store_test_results:
           path: target/surefire-reports
