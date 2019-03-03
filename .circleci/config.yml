@@ -4,7 +4,7 @@ jobs:
     working_directory: ~/jio-lib
 
     docker:
-      - image: circleci/openjdk:11-jdk-browsers
+      - image: buildpack-deps:trusty
 
     steps:
 
