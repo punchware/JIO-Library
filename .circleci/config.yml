@@ -4,15 +4,13 @@ jobs:
     working_directory: ~/jio-lib
 
     docker:
-      - image: buildpack-deps:trusty
+      - image: circleci/openjdk:8-jdk-browsers
 
     steps:
 
-      - run: apt-get install maven -y
-
       - checkout
 
-      - run: mvn clean package install
+      - run: mvn clean package install -DskipTests
 
       - store_test_results:
           path: target/surefire-reports
